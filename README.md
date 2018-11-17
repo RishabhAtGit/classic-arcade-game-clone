@@ -9,6 +9,8 @@ Classic Arcade Game Clone Project is the classic arcade game frogger developed u
 
 ## Game Instructions
 
+To start the game, you need to run [index.html](index.html) file in the repository.
+
 Classic Arcade Game Clone includes following two characters:
 
 -   A player (who need to cross the rocks area without colliding
