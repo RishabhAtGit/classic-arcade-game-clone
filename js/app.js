@@ -37,6 +37,16 @@ class Player {
     ctx.drawImage(Resources.get(this.sprite), this.xCoord, this.yCoord);
   }
 
+  handleInput(input){
+    if(input === 'left' && this.xCoord > 0)
+      this.xCoord -= 100;
+    if(input === 'right' && this.xCoord < 400)
+      this.xCoord += 100;
+    if(input === 'up' && this.yCoord > 0)
+      this.yCoord -= 80;
+    if(input === 'down' && this.yCoord < 380)
+      this.yCoord += 80;
+  }
 }
 
 // Now instantiate your objects.
