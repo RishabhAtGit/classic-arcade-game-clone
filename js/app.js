@@ -43,6 +43,7 @@ class Player {
     this.xCoord = this.startXCoord;
     this.yCoord = this.startYCoord;
     this.sprite = 'images/char-boy.png';
+    this.gameOver = false;
   }
 
   render(){
@@ -67,7 +68,7 @@ class Player {
        }
      }
      if(this.yCoord === -20){
-       this.reset();
+       this.gameOver = true;
      }
   }
 

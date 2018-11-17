@@ -22,11 +22,22 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
-        lastTime;
+        lastTime,
+        idGenerated = 0;
+
+    const winningModal = document.querySelector('.winning-modal');
+    const playAgainButton = document.querySelector('.play-again');
 
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
+
+    playAgainButton.addEventListener('click', function(){
+      winningModal.classList.toggle('hide');
+      player.reset();
+      player.gameOver = false;
+      win.requestAnimationFrame(main);
+    });
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -55,7 +66,12 @@ var Engine = (function(global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
-        win.requestAnimationFrame(main);
+         if(player.gameOver === true){
+           win.cancelAnimationFrame(idGenerated);
+           winningModal.classList.toggle('hide');
+         }else{
+           idGenerated = win.requestAnimationFrame(main);
+         }
     }
 
     /* This function does some initial setup that should only occur once,
