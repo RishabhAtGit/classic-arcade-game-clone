@@ -66,6 +66,9 @@ class Player {
          this.reset();
        }
      }
+     if(this.yCoord === -20){
+       this.reset();
+     }
   }
 
   reset(){
