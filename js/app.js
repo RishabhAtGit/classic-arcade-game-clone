@@ -57,6 +57,14 @@ class Player {
     if(input === 'down' && this.yCoord < 380)
       this.yCoord += 80;
   }
+
+  update(){
+     for (let enemy of allEnemies){
+       if(enemy.y === this.yCoord  && (enemy.x < this.xCoord +50 && enemy.x+50 > this.xCoord)){
+         console.log("collide!!!");
+       }
+     }
+  }
 }
 
 // Now instantiate your objects.
@@ -69,7 +77,7 @@ const player = new Player();
 //Enemy Class object
 const enemy1 = new Enemy(-400,60,200);
 const enemy2 = new Enemy(-350,140,250);
-const enemy3 = new Enemy(-400,220,300); 
+const enemy3 = new Enemy(-400,220,300);
 
 //Enemies array
 const allEnemies = [];
