@@ -38,8 +38,10 @@ Enemy.prototype.render = function() {
 // player class
 class Player {
   constructor(){
-    this.xCoord = 200;
-    this.yCoord = 380;
+    this.startXCoord = 200;
+    this.startYCoord = 380;
+    this.xCoord = this.startXCoord;
+    this.yCoord = this.startYCoord;
     this.sprite = 'images/char-boy.png';
   }
 
@@ -61,9 +63,14 @@ class Player {
   update(){
      for (let enemy of allEnemies){
        if(enemy.y === this.yCoord  && (enemy.x < this.xCoord +50 && enemy.x+50 > this.xCoord)){
-         console.log("collide!!!");
+         this.reset();
        }
      }
+  }
+
+  reset(){
+    this.xCoord = this.startXCoord;
+    this.yCoord = this.startYCoord;
   }
 }
 
